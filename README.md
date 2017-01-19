@@ -27,21 +27,20 @@ To include videojs-s3bubble-multi-adverts on your website or web application, us
 This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available.
 
 ```html
-<video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls>
-  <source
-     src="https://example.com/index.m3u8"
-     type="application/x-mpegURL">
+<video id="s3bubble-video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268">
+    <source src="https://s3.amazonaws.com/s3bubble.videojs/claire-in-motion.mp4" type="video/mp4">
 </video>
 <script src="//path/to/video.min.js"></script>
 <script src="//path/to/videojs-s3bubble-multi-adverts.min.js"></script>
 <script>
-  	var player = videojs('my-video');
-
+  	var player = videojs('s3bubble-video');
+    
+    // this is just a dummy example replace with your video code
   	$.ajax({
         url: "https://xe309ni835.execute-api.us-east-1.amazonaws.com/testing/adverts",
         type: "POST",
         data: JSON.stringify({
-            "code": settings.code
+            "code": "cnAW19541"
         }),
         contentType: 'application/json',
         dataType: "json",
@@ -49,7 +48,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
             if(response.statusCode === "200"){
 
-                videoPlayer.s3BubbleMultiAdverts(response);
+                player.s3BubbleMultiAdverts(response);
 
             }else{
 
