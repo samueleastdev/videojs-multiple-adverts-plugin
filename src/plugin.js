@@ -168,14 +168,16 @@ const onPlayerReady = (player, options) => {
     	s3bubbleAdvertismentText.style.display = "block";
 	    progressBar.style.height = "0px";
 	    progressBar.style.overflow = "hidden";
-	    document.getElementById("switch").style.display = "none";
+	    if (document.getElementById("switch")){
+		    document.getElementById("switch").style.display = "none";
+		}
 
 		// Set the current time
     	player.advert_playing = true;
     	player.advert_last_time = player.currentTime();
     	
 		player.src({
-			"type": "video/mp4", "src": data.url
+			"src": data.url
 		});
 		
 		player.currentTime(0);
@@ -215,7 +217,7 @@ const onPlayerReady = (player, options) => {
     var resumeVideo = function(){
 
         player.src({
-			"type": "application/x-mpegURL", "src": currentVideo
+			"src": currentVideo
 		});
 		
         firePlayThroughOnce = true;
@@ -228,7 +230,10 @@ const onPlayerReady = (player, options) => {
     	s3bubbleAdvertismentText.style.display = "none";
 	    progressBar.style.height = "auto";
 	    progressBar.style.overflow = "visible";
-	    document.getElementById("switch").style.display = "block";
+
+		if (document.getElementById("switch")){
+		    document.getElementById("switch").style.display = "block";
+		}
 		
     }
 
