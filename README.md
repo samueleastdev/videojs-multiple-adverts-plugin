@@ -1,6 +1,6 @@
 # S3bubble Videojs Multi Adverts
 
-Add multiple video adverts to video js from Amazon Web Serivces
+Add multiple video adverts to video js from Amazon Web Services
 
 ## Table of Contents
 
