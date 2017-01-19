@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>videojs-s3bubble-multi-adverts Demo</title>
+  <link href="/node_modules/video.js/dist/video-js.css" rel="stylesheet">
+</head>
+<body>
+  <video id="videojs-s3bubble-multi-adverts-player" class="video-js vjs-default-skin" controls>
+    <source src="//vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+    <source src="//vjs.zencdn.net/v/oceans.webm" type='video/webm'>
+  </video>
+  <ul>
+    <li><a href="/test/">Run unit tests in browser.</a></li>
+    <li><a href="/docs/api/">Read generated docs.</a></li>
+  </ul>
+  <script src="/node_modules/video.js/dist/video.js"></script>
+  <script src="/dist/videojs-s3bubble-multi-adverts.js"></script>
+  <script>
+    (function(window, videojs) {
+      var player = window.player = videojs('videojs-s3bubble-multi-adverts-player');
+      player.s3BubbleMultiAdverts();
+    }(window, window.videojs));
+  </script>
+</body>
+</html>

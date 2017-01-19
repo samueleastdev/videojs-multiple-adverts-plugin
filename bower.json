@@ -1,0 +1,13 @@
+{
+  "name": "videojs-s3bubble-multi-adverts",
+  "author": "S3Bubble",
+  "license": "MIT",
+  "main": [
+    "dist/videojs-s3bubble-multi-adverts.min.js"
+  ],
+  "keywords": [
+    "videojs",
+    "videojs-plugin"
+  ]
+}
+
