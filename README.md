@@ -62,7 +62,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 </script>
 ```
 
-Check out our [live example](http://jsbin.com/tafanac/edit?html,output){:target="_blank"} if you're having trouble.
+Check out our <a href="http://jsbin.com/tafanac/edit?html,output" target="_blank">live example</a> if you're having trouble.
 
 ### Browserify
 
