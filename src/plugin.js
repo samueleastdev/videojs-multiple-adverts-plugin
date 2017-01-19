@@ -16,8 +16,6 @@ const defaults = {};
  */
 const onPlayerReady = (player, options) => {
 
-	console.log("options",options);
-
 	var adverts = options.body;
 	var firePlayThroughOnce = true;
 	var currentVideo = player.currentSrc();
