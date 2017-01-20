@@ -1,6 +1,6 @@
 {
   "name": "videojs-s3bubble-multi-adverts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Add multiple video adverts to video js from Amazon Web Serivces",
   "main": "es5/plugin.js",
   "generator-videojs-plugin": {
