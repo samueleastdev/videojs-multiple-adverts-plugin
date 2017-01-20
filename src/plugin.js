@@ -19,6 +19,7 @@ const onPlayerReady = (player, options) => {
 	var adverts = options.body;
 	var firePlayThroughOnce = true;
 	var currentVideo = player.currentSrc();
+	var currentType = player.currentType();
 	var progressBarHolder = document.getElementsByClassName("vjs-progress-holder")[0];
 	var progressBar = document.getElementsByClassName("vjs-progress-control")[0];
 
@@ -137,7 +138,7 @@ const onPlayerReady = (player, options) => {
 			    var s3bubbleAdvertismentTime = document.createElement('div');
 			    s3bubbleAdvertismentTime.className = 'advert-time';
 			    s3bubbleAdvertismentTime.style.position = "absolute";
-			    s3bubbleAdvertismentTime.style.width = "5px";
+			    s3bubbleAdvertismentTime.style.width = "1px";
 			    s3bubbleAdvertismentTime.style.height = "100%";
 			    s3bubbleAdvertismentTime.style.background = "#fff";
 			    s3bubbleAdvertismentTime.style.left = sliderLeft + "%";
@@ -177,7 +178,8 @@ const onPlayerReady = (player, options) => {
     	player.advert_last_time = player.currentTime();
     	
 		player.src({
-			"src": data.url
+			type: data.mime_type,
+			src: data.url
 		});
 		
 		player.currentTime(0);
@@ -217,7 +219,8 @@ const onPlayerReady = (player, options) => {
     var resumeVideo = function(){
 
         player.src({
-			"src": currentVideo
+        	type: currentType,
+			src: currentVideo
 		});
 		
         firePlayThroughOnce = true;
@@ -225,17 +228,27 @@ const onPlayerReady = (player, options) => {
 		
 		player.play();
 
-		// update adverts ui
-		skipButton.el().style.display = "none";
-    	s3bubbleAdvertismentText.style.display = "none";
-	    progressBar.style.height = "auto";
-	    progressBar.style.overflow = "visible";
-
-		if (document.getElementById("switch")){
-		    document.getElementById("switch").style.display = "block";
-		}
+		
 		
     }
+
+    player.on('playing', function() {
+        
+        if(!player.advert_playing){
+
+        	// update adverts ui
+			skipButton.el().style.display = "none";
+	    	s3bubbleAdvertismentText.style.display = "none";
+		    progressBar.style.height = "auto";
+		    progressBar.style.overflow = "visible";
+
+			if (document.getElementById("switch")){
+			    document.getElementById("switch").style.display = "block";
+			}
+
+        }           
+
+    });
 
 };
 
